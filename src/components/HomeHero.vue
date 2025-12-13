@@ -41,15 +41,16 @@ const cardTransform = ref(initialTransform);
 const cardTransition = ref("transform 0.5s ease-out");
 
 const handleMouseEnter = () => {
-  // 鼠标进入时，移除过渡效果，实现即时跟随，消除卡顿感
-  cardTransition.value = "none";
+  // 鼠标进入时，使用极短的过渡时间 (0.1s) 来平滑从初始状态到鼠标位置的突变
+  // 这样既避免了瞬间跳变 (Jump)，也避免了长过渡带来的卡顿感 (Lag)
+  cardTransition.value = "transform 0.1s ease-out";
 };
 
 const handleMouseMove = (e) => {
   if (!cardRef.value) return;
 
-  // 确保移动时没有过渡延迟
-  cardTransition.value = "none";
+  // 保持极短的过渡，让跟随更平滑，同时几乎感觉不到延迟
+  cardTransition.value = "transform 0.1s ease-out";
 
   const rect = cardRef.value.getBoundingClientRect();
   const x = e.clientX - rect.left;
@@ -129,7 +130,7 @@ const handleMouseLeave = () => {
                 class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"
               ></span>
             </span>
-            Available for hire
+            Welcome to my blog!
           </div>
 
           <!-- 
@@ -152,8 +153,8 @@ const handleMouseLeave = () => {
           <p
             class="text-xl text-gray-500 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
           >
-            你好，我是 Dedan。一名前端开发者，热衷于探索 Web
-            技术。在这里分享我的学习笔记、技术心得和生活感悟。
+            你好，我是Dedan，浙江大学机械工程大二学生。
+            这里是我的个人博客，记录我的学习与项目历程，分享前端开发与UI设计的心得。
           </p>
 
           <!-- 
@@ -175,7 +176,7 @@ const handleMouseLeave = () => {
               v-model="searchQuery"
               @keyup.enter="handleSearch"
               type="text"
-              class="w-full pl-11 pr-4 py-4 bg-white border border-gray-200 rounded-2xl shadow-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all text-gray-700 placeholder-gray-400"
+              class="w-full pl-11 pr-14 py-4 bg-white border border-gray-200 rounded-full shadow-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all text-gray-700 placeholder-gray-400"
               placeholder="搜索文章、教程或笔记..."
             />
 
@@ -183,7 +184,7 @@ const handleMouseLeave = () => {
             <div class="absolute inset-y-0 right-2 flex items-center">
               <button
                 @click="handleSearch"
-                class="p-2 bg-gray-100 hover:bg-blue-600 hover:text-white rounded-xl transition-colors text-gray-500"
+                class="p-2 bg-gray-100 hover:bg-blue-600 hover:text-white rounded-full transition-colors text-gray-500"
               >
                 <div class="i-carbon-arrow-right"></div>
               </button>
@@ -288,7 +289,7 @@ const handleMouseLeave = () => {
 
           <!-- 悬浮装饰卡片 -->
           <div
-            class="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl animate-bounce-slow"
+            class="absolute -bottom-6 -right-6 bg-white p-4 rounded-3xl shadow-xl animate-bounce-slow"
           >
             <div class="flex items-center gap-3">
               <div

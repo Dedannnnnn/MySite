@@ -21,26 +21,24 @@ const skills = [
 // 工作经历数据
 // 用于在 Experience 卡片中循环展示
 const experiences = [
-  { year: "2023", title: "Senior Dev", company: "Tech Corp" },
-  { year: "2021", title: "Frontend Dev", company: "StartUp Inc" },
-  { year: "2019", title: "Junior Dev", company: "Web Agency" },
+  { year: "2024–Now", title: "机械工程本科生（大二）", company: "浙江大学" },
 ];
 </script>
 
 <template>
-  <!-- 
-    页面主容器 
-    min-h-screen: 最小高度占满屏幕
-    bg-gray-50: 浅灰色背景
-    py-20: 上下内边距 5rem (80px)
-    px-4: 左右内边距 1rem (16px)
-  -->
   <div class="min-h-screen bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
+    <!-- 
+      页面主容器 
+      min-h-screen: 最小高度占满屏幕
+      bg-gray-50: 浅灰色背景
+      py-20: 上下内边距 5rem (80px)
+      px-4: 左右内边距 1rem (16px)
+    -->
     <div class="max-w-5xl mx-auto">
       <!-- 页面标题区域 -->
       <div class="mb-12">
         <h1 class="text-4xl font-bold text-gray-900 mb-4">关于我</h1>
-        <p class="text-xl text-gray-500">不只是代码，更是生活。</p>
+        <p class="text-xl text-gray-500">机械与代码的交汇处。</p>
       </div>
 
       <!-- 
@@ -49,11 +47,11 @@ const experiences = [
         grid-cols-1: 默认 1 列
         md:grid-cols-3: 中等屏幕 (md) 以上 3 列
         lg:grid-cols-4: 大屏幕 (lg) 以上 4 列
-        gap-4: 网格间距 1rem
+        gap-6: 网格间距 1.5rem (增加间距)
         auto-rows-[180px]: 每一行的高度固定为 180px，卡片可以通过 row-span-* 跨越多行
       -->
       <div
-        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[180px]"
+        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[180px]"
       >
         <!-- 
           1. 个人简介卡片 (大尺寸)
@@ -63,7 +61,7 @@ const experiences = [
           group: 用于控制子元素在父元素悬停时的样式 (group-hover)
         -->
         <div
-          class="md:col-span-2 md:row-span-2 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col justify-between relative overflow-hidden group"
+          class="md:col-span-2 md:row-span-2 bg-white rounded-[2rem] p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 flex flex-col justify-between relative overflow-hidden group"
         >
           <!-- 背景装饰光晕：绝对定位，模糊效果 -->
           <!-- group-hover:bg-blue-100: 当鼠标悬停在父卡片时，背景色变深 -->
@@ -75,33 +73,36 @@ const experiences = [
           <div class="relative z-10">
             <!-- 头像容器 -->
             <div
-              class="w-20 h-20 rounded-full overflow-hidden mb-6 border-4 border-white shadow-md"
+              class="w-24 h-24 rounded-full overflow-hidden mb-6 border-4 border-white shadow-lg hover:scale-105 transition-transform duration-300"
             >
               <img
-                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Dedan"
+                src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
                 alt="Avatar"
                 class="w-full h-full object-cover"
               />
             </div>
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">Dedan</h2>
-            <p class="text-gray-500 text-lg mb-6">前端开发者 & UI 设计爱好者</p>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">
+              ZJU · ME Student
+            </h2>
+            <p class="text-gray-500 text-lg mb-6">浙江大学 · 机械工程 · 大二</p>
             <p class="text-gray-600 leading-relaxed">
-              热衷于构建高性能、可访问的 Web
-              应用。喜欢探索新技术，同时也注重代码的可维护性。
+              我在浙江大学学习机械工程，喜欢把“工程思维”用在解决问题上。
+              课余会写前端、做一些 UI
+              小设计，也会记录学习笔记、项目复盘和生活感悟。
             </p>
           </div>
 
           <!-- 底部标签 -->
-          <div class="relative z-10 mt-auto pt-6 flex gap-3">
+          <div class="relative z-10 mt-auto pt-2 flex gap-4">
             <div
               class="px-4 py-2 bg-gray-900 text-white rounded-full text-sm font-medium"
             >
-              Available for hire
+              Zhejiang University
             </div>
             <div
               class="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-medium"
             >
-              Remote
+              Mechanical Engineering
             </div>
           </div>
         </div>
@@ -112,7 +113,7 @@ const experiences = [
           bg-gradient-to-t: 底部渐变遮罩，保证白色文字在图片上的可读性
         -->
         <div
-          class="md:col-span-1 md:row-span-1 bg-gray-900 rounded-3xl p-6 shadow-sm border border-gray-800 flex flex-col justify-between relative overflow-hidden text-white group"
+          class="md:col-span-1 md:row-span-1 bg-gray-900 rounded-[2rem] p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-800 flex flex-col justify-between relative overflow-hidden text-white group"
         >
           <!-- 背景图层 -->
           <div
@@ -136,7 +137,7 @@ const experiences = [
             <div class="text-xs text-gray-300 uppercase tracking-wider mb-1">
               Based in
             </div>
-            <div class="text-xl font-bold">Shanghai, CN</div>
+            <div class="text-xl font-bold">Hangzhou, CN</div>
           </div>
         </div>
 
@@ -148,7 +149,7 @@ const experiences = [
         <a
           href="https://github.com"
           target="_blank"
-          class="md:col-span-1 md:row-span-1 bg-[#24292e] rounded-3xl p-6 shadow-sm flex flex-col justify-center items-center text-white hover:scale-[1.02] transition-transform cursor-pointer"
+          class="md:col-span-1 md:row-span-1 bg-[#24292e] rounded-[2rem] p-6 shadow-sm hover:shadow-md flex flex-col justify-center items-center text-white hover:scale-[1.02] transition-all duration-300 cursor-pointer"
         >
           <div class="i-carbon-logo-github text-5xl mb-3"></div>
           <span class="font-medium">Follow me</span>
@@ -159,7 +160,7 @@ const experiences = [
           md:row-span-2: 跨越两行高度，适合展示列表内容
         -->
         <div
-          class="md:col-span-1 md:row-span-2 bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col"
+          class="md:col-span-1 md:row-span-2 bg-white rounded-[2rem] p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 flex flex-col"
         >
           <h3 class="font-bold text-gray-800 mb-6 flex items-center gap-2">
             <div class="i-carbon-code text-blue-600"></div>
@@ -189,14 +190,14 @@ const experiences = [
           flex-1: 子元素平分宽度
         -->
         <div
-          class="md:col-span-2 md:row-span-1 bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-center"
+          class="md:col-span-2 md:row-span-1 bg-white rounded-[2rem] p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 flex flex-col justify-center"
         >
           <div class="flex items-center justify-between mb-4">
             <h3 class="font-bold text-gray-800 flex items-center gap-2">
               <div class="i-carbon-briefcase text-blue-600"></div>
-              Experience
+              Campus & Projects
             </h3>
-            <span class="text-xs text-gray-400">Full History -></span>
+            <span class="text-xs text-gray-400">More -></span>
           </div>
           <div class="flex justify-between gap-4">
             <div v-for="(exp, i) in experiences" :key="i" class="flex-1">
@@ -214,7 +215,7 @@ const experiences = [
         <!-- 6. 社交链接: Twitter -->
         <a
           href="#"
-          class="md:col-span-1 md:row-span-1 bg-[#1DA1F2] rounded-3xl p-6 shadow-sm flex flex-col justify-center items-center text-white hover:scale-[1.02] transition-transform cursor-pointer"
+          class="md:col-span-1 md:row-span-1 bg-[#1DA1F2] rounded-[2rem] p-6 shadow-sm hover:shadow-md flex flex-col justify-center items-center text-white hover:scale-[1.02] transition-all duration-300 cursor-pointer"
         >
           <div class="i-carbon-logo-twitter text-5xl mb-3"></div>
           <span class="font-medium">Connect</span>
@@ -225,7 +226,7 @@ const experiences = [
           rotate-12: 装饰图标旋转一定角度，增加趣味性
         -->
         <div
-          class="md:col-span-1 md:row-span-1 bg-orange-50 rounded-3xl p-6 shadow-sm border border-orange-100 flex flex-col justify-between overflow-hidden relative group"
+          class="md:col-span-1 md:row-span-1 bg-orange-50 rounded-[2rem] p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-orange-100 flex flex-col justify-between overflow-hidden relative group"
         >
           <div
             class="absolute -right-4 -bottom-4 text-9xl opacity-10 rotate-12 group-hover:rotate-0 transition-transform"
@@ -243,7 +244,7 @@ const experiences = [
           bg-gradient-to-r: 渐变背景，吸引注意力
         -->
         <div
-          class="md:col-span-2 md:row-span-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 shadow-lg text-white flex items-center justify-between relative overflow-hidden"
+          class="md:col-span-2 md:row-span-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-[2rem] p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-white flex items-center justify-between relative overflow-hidden"
         >
           <!-- 装饰圆 -->
           <div
